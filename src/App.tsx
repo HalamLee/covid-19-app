@@ -1,5 +1,6 @@
 import { Global, css } from '@emotion/react';
 import { useState, useEffect } from 'react';
+import BarChart from './components/BarChart';
 import CountryList from './components/CountryList';
 import GlobalInfo from './components/GlobalInfo';
 import type { ResponseData, Country } from './types';
@@ -55,6 +56,11 @@ const App: React.FunctionComponent = () => {
             newDeaths={data?.Global.NewDeaths}
             newRecovered={data?.Global.NewRecovered}
           />
+          <hr />
+
+          {activeCountries.length ? (
+            <BarChart countries={activeCountries} />
+          ) : null}
 
           <CountryList
             countries={data.Countries}

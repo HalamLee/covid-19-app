@@ -23,7 +23,7 @@ const ListItem = styled.li`
 `;
 
 const ListContent = styled.div<ListContentProps>`
-  background-color: ${(props) => (props.isActive ? '#beedca' : '#fff')};
+  background-color: ${(props) => (props.isActive ? '#fff' : '#f7f7f7')};
   margin: 5px;
   padding: 10px 0;
 `;
