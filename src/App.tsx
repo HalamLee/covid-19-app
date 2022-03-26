@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CountryList from './components/CountryList';
 import GlobalInfo from './components/GlobalInfo';
 import type { ResponseData } from './types';
 
@@ -20,11 +21,15 @@ const App: React.FunctionComponent = () => {
   return (
     <div>
       {data ? (
-        <GlobalInfo
-          newConfirmed={data?.Global.NewConfirmed}
-          newDeaths={data?.Global.NewDeaths}
-          newRecovered={data?.Global.NewRecovered}
-        />
+        <>
+          <GlobalInfo
+            newConfirmed={data?.Global.NewConfirmed}
+            newDeaths={data?.Global.NewDeaths}
+            newRecovered={data?.Global.NewRecovered}
+          />
+
+          <CountryList countries={data.Countries} />
+        </>
       ) : (
         'Loading...'
       )}
