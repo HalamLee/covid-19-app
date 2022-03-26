@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import GlobalInfo from './components/GlobalInfo';
 
 type Country = {
   Country: string;
@@ -50,7 +51,15 @@ const App: React.FunctionComponent = () => {
 
   return (
     <div>
-      <h1>Global Covid-19 data</h1>
+      {data ? (
+        <GlobalInfo
+          newConfirmed={data?.Global.NewConfirmed}
+          newDeaths={data?.Global.NewDeaths}
+          newRecovered={data?.Global.NewRecovered}
+        />
+      ) : (
+        'Loading...'
+      )}
     </div>
   );
 };
